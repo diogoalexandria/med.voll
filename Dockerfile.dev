@@ -1,0 +1,15 @@
+# Etapa 1: Construção
+# Etapa 1: Construção e execução no mesmo estágio
+FROM maven:3.8.7-eclipse-temurin-17
+
+WORKDIR /app
+
+# Copia os arquivos de configuração do Maven e as dependências do projeto
+COPY pom.xml .
+COPY src ./src
+
+# Construir o projeto
+RUN mvn clean package -DskipTests
+
+# Comando para iniciar a aplicação Spring Boot
+CMD ["mvn", "spring-boot:run"]
