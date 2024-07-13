@@ -1,0 +1,22 @@
+{
+    "name": "Spring Boot Dev Container",
+    "context": "..",
+    "dockerFile": "../Dockerfile.dev",
+    "appPort": [8080],
+    "workspaceFolder": "/app",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "vscjava.vscode-java-pack",
+          "pivotal.vscode-spring-boot",
+          "vscjava.vscode-maven"
+        ],
+        "settings": {
+          "terminal.integrated.shell.linux": "/bin/bash"
+        }
+      }
+    },
+    "runArgs": ["--rm", "-v", "${localEnv:HOME}/.m2:/root/.m2"],
+    "postCreateCommand": "mvn clean install -DskipTests",
+    "remoteUser": "root"
+  }
