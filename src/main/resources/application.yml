@@ -1,0 +1,3 @@
+logging:
+  file:
+    name: /app/logs/spring-boot-app.log
