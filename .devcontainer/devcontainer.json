@@ -19,7 +19,12 @@
   "mounts": [
     "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
   ],
-  "runArgs": ["--rm", "-v", "${localEnv:HOME}/.m2:/root/.m2"],
+  "runArgs": ["--network=medvoll_dev-network", "--rm", "-v", "${localEnv:HOME}/.m2:/root/.m2"],
   "postCreateCommand": "mvn clean install -DskipTests",
-  "remoteUser": "root"
+  "remoteUser": "root",
+  "containerEnv": {
+    "SPRING_DATASOURCE_URL": "jdbc:mysql://mysql-medvoll:3306/mydatabase",
+    "SPRING_DATASOURCE_USERNAME": "myuser",
+    "SPRING_DATASOURCE_PASSWORD": "mypassword"
+  }
 }
