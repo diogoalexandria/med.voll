@@ -2,10 +2,10 @@ package med.voll.api.medico;
 
 import med.voll.api.endereco.Endereco;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
