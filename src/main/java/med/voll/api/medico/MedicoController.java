@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("medicos")
@@ -17,7 +18,7 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody MedicoDTO cadastro) {
+    public void cadastrar(@RequestBody @Valid MedicoDTO cadastro) {
         System.out.println(cadastro);
 
         repository.save(new Medico(cadastro));
