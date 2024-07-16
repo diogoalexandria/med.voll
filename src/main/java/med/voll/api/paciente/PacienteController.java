@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("pacientes")
 public class PacienteController {
@@ -15,7 +17,7 @@ public class PacienteController {
     private PacienteRepository repository;
     
     @PostMapping
-    public void cadastrar(@RequestBody PacienteDTO cadastro) {
+    public void cadastrar(@RequestBody @Valid PacienteDTO cadastro) {
         System.out.println(cadastro);
 
         repository.save(new Paciente(cadastro));

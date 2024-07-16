@@ -1,9 +1,11 @@
 package med.voll.api.paciente;
 
 import med.voll.api.endereco.EnderecoDTO;
+
+import org.hibernate.validator.constraints.br.CPF;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -20,7 +22,7 @@ public record PacienteDTO(
     String telefone,
 
     @NotBlank
-    @Pattern(regexp = "//d{}")
+    @CPF
     String cpf,
     
     @NotNull
