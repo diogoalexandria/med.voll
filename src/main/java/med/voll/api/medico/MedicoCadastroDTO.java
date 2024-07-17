@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.NotBlank;
 
-public record MedicoDTO(
+public record MedicoCadastroDTO(
 
     @NotBlank
     String nome,
