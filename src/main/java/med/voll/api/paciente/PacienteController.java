@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
-import med.voll.api.medico.MedicoRetornoListaDTO;
 
 @RestController
 @RequestMapping("pacientes")
@@ -25,7 +24,7 @@ public class PacienteController {
     private PacienteRepository repository;
 
     @Autowired
-    private PagedResourcesAssembler<MedicoRetornoListaDTO> pagedResourcesAssembler;
+    private PagedResourcesAssembler<PacienteRetornoListaDTO> pagedResourcesAssembler;
     
     @PostMapping
     public void cadastrar(@RequestBody @Valid PacienteCadastroDTO cadastro) {
