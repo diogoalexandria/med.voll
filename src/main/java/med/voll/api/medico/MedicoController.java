@@ -1,8 +1,9 @@
 package med.voll.api.medico;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,12 +30,10 @@ public class MedicoController {
     }
 
     @GetMapping
-    public List<MedicoRetornoListaDTO> listar() {
+    public Page<MedicoRetornoListaDTO> listar(Pageable pagination) {
         return repository
-            .findAll()
-            .stream()
-            .map(MedicoRetornoListaDTO::new)
-            .toList();
+            .findAll(pagination)            
+            .map(MedicoRetornoListaDTO::new);
     }
     
 }
