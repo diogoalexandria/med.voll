@@ -32,12 +32,11 @@ public class Paciente {
     @Embedded
     private Endereco endereco;
 
-    public Paciente(PacienteDTO paciente) {
+    public Paciente(PacienteCadastroDTO paciente) {
         this.nome     = paciente.nome();
         this.email    = paciente.email();
         this.telefone = paciente.telefone();
         this.cpf      = paciente.cpf();
         this.endereco = new Endereco(paciente.endereco());
     }
-
 }
