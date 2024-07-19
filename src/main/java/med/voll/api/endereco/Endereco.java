@@ -28,6 +28,4 @@ public class Endereco {
         this.complemento = endereco.complemento();
         this.numero      = endereco.numero();
     }
-
-
 }

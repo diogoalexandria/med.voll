@@ -42,6 +42,5 @@ public class MedicoController {
         Page<MedicoRetornoListaDTO> page = repository.findAll(pagination).map(MedicoRetornoListaDTO::new);
 
         return pagedResourcesAssembler.toModel(page);
-    }
-    
+    }    
 }
