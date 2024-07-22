@@ -11,6 +11,7 @@ import org.springframework.hateoas.PagedModel;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,10 +31,10 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody @Valid MedicoCadastroDTO cadastro) {
-        System.out.println(cadastro);
+    public void cadastrar(@RequestBody @Valid MedicoDTO medicoCadastro) {
+        System.out.println(medicoCadastro);
 
-        repository.save(new Medico(cadastro));
+        repository.save(new Medico(medicoCadastro));
     }
 
     @GetMapping
@@ -42,5 +43,13 @@ public class MedicoController {
         Page<MedicoRetornoListaDTO> page = repository.findAll(pagination).map(MedicoRetornoListaDTO::new);
 
         return pagedResourcesAssembler.toModel(page);
-    }    
+    }
+    
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid MedicoAtualizacaoDTO medicoAtualizado) {
+        var medicoCadastrado = repository.getReferenceById(medicoAtualizado.id());
+
+        medicoCadastrado.atualizar(medicoAtualizado);
+    }
 }
